@@ -1,0 +1,9 @@
+/home/musa/carta_ws/build/carta/CMakeFiles/uninstall.dir
+/home/musa/carta_ws/build/carta/CMakeFiles/carta_uninstall.dir
+/home/musa/carta_ws/build/carta/CMakeFiles/test.dir
+/home/musa/carta_ws/build/carta/CMakeFiles/edit_cache.dir
+/home/musa/carta_ws/build/carta/CMakeFiles/rebuild_cache.dir
+/home/musa/carta_ws/build/carta/CMakeFiles/list_install_components.dir
+/home/musa/carta_ws/build/carta/CMakeFiles/install.dir
+/home/musa/carta_ws/build/carta/CMakeFiles/install/local.dir
+/home/musa/carta_ws/build/carta/CMakeFiles/install/strip.dir
