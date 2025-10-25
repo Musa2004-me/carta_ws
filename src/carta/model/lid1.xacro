@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Fixed joint connecting lidar to the base link -->
+  <joint name="lidar_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="lidar_link"/>
+    <origin xyz="0.25989 0.000025 0.038536" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Lidar link -->
+  <link name="lidar_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find carta)/meshes/lidar.STL"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find carta)/meshes/lidar.STL"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <origin xyz="-0.00024222 6.9389E-17 -0.0062953" rpy="0 0 0"/>
+      <mass value="0.012324"/>
+      <inertia
+        ixx="1.1235E-06"
+        ixy="-3.5497E-22"
+        ixz="3.0591E-08"
+        iyy="1.1223E-06"
+        iyz="-9.4762E-21"
+        izz="1.9174E-06"/>
+    </inertial>
+  </link>
+
+  <!-- Gazebo LIDAR sensor plugin -->
+  <gazebo reference="lidar_link">
+    <material>Gazebo/Red</material>
+
+    <sensor name="lidar_sensor" type="ray">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <min_angle>-3.14</min_angle>
+            <max_angle>3.14</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.3</min>
+          <max>12.0</max>
+        </range>
+      </ray>
+
+      <plugin name="lidar_controller" filename="libgazebo_ros_ray_sensor.so">
+        <ros>
+          <argument>~/out:=scan</argument>
+        </ros>
+        <output_type>sensor_msgs/LaserScan</output_type>
+        <frame_name>lidar_link</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+</robot>

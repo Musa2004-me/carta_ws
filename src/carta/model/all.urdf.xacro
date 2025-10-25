@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="carta_rob">
+  <xacro:include filename="$(find carta)/model/carta.xacro"/>
+  <!-- <xacro:include filename="$(find carta)/model/lid2.xacro"/> -->
+  <xacro:include filename="$(find carta)/model/cam1.xacro"/>
+  <!-- <xacro:include filename="$(find carta)/model/lid1.xacro"/>  -->
+  <!-- 
+  <xacro:include filename="$(find carta)/model/cam2.xacro"/>
+  <xacro:include filename="$(find carta)/model/cam3.xacro"/> 
+  -->
+  <xacro:include filename="$(find carta)/model/gazebo.xacro"/> 
+</robot>
